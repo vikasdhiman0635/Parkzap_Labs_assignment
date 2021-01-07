@@ -1,0 +1,73 @@
+<section class="getintouch">
+    <div class="container modern-form">
+        <div class="text-center">
+            <h4 style="color: #212529;font-size: 45px;">Register User</h4>
+        </div>
+<form [formGroup]="rForm" (ngSubmit)="addpost(rForm.value)">
+<div class="container">
+    <div class="row">
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+                <label for="Mname">Name :</label>
+                <input id="Mname" class="form-control input input-tr" type="text" formControlName="name" autofocus/>
+                <div *ngIf="rForm.get('name').valid || rForm.get('name').touched">
+                    <small *ngIf="rForm.get('name').errors?.required" class="text-danger">
+                        Name is required
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+                <label for="email">DOB :</label>
+                <input id="email" class="form-control input input-tr" type="date" formControlName="age"/>
+                <div *ngIf="rForm.get('age').valid || rForm.get('age').touched">
+                    <small *ngIf="rForm.get('age').errors?.required" class="text-danger">
+                        Age is required
+                    </small>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+                <label for="Comapanyname">Email :</label>
+                <input id="Comapanyname" class="form-control input input-tr" type="text" formControlName="email" [email]="true" />
+                <div *ngIf="rForm.get('email').valid || rForm.get('email').touched">
+                    <small *ngIf="rForm.get('email').errors?.email" class="text-danger">
+                        @gmail.com is required
+                    </small>
+                    <small *ngIf="rForm.get('email').errors?.required" class="text-danger">
+                        Email is required
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+                <label for="mobile">Phone No. :</label>
+                <input id="mobile" class="form-control input input-tr" formControlName="mobile" type="number"/>
+                <div *ngIf="rForm.get('mobile').valid || rForm.get('mobile').touched">
+                    <small *ngIf="rForm.get('mobile').errors?.required" class="text-danger">
+                        Phone No. is required
+                    </small>
+                    <small *ngIf="rForm.get('mobile').errors?.maxLength" class="text-danger">
+                        At least 10 digits is required
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <input type="submit" [disabled]="!rForm.valid" value="Register Now" class="btn btn-success">
+        </div>
+    </div>
+</div>
+</form>
+</div>
+</section>

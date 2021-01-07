@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "userregisterdetails",
+    "public": "dist/LeewayHertz",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
